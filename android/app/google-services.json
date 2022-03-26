@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "985880008727",
+    "project_id": "rizer-demo",
+    "storage_bucket": "rizer-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985880008727:android:6b8c010a4ec9c6de5de452",
+        "android_client_info": {
+          "package_name": "com.amandesai.rizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985880008727-l96pjrrqgksac7mula9ibsq6m6p2kram.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amandesai.rizer",
+            "certificate_hash": "99d5c8f05fe2bd29a40963be4f602d1ac17260a4"
+          }
+        },
+        {
+          "client_id": "985880008727-upav3rt5jajtsle5ng9oe7jv056mc22n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyTVKWrEVIIvf_ujSXIE7efZaWt6EPoIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985880008727-upav3rt5jajtsle5ng9oe7jv056mc22n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
