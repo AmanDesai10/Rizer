@@ -2,9 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rizer/Signup/provider/signup_provider.dart';
-import 'package:rizer/Signup/verify_email.dart';
 import 'package:rizer/firebase_options.dart';
-import 'package:rizer/login/loginScreen.dart';
 import 'package:rizer/login/login_view.dart';
 import 'package:rizer/login/provider/login_provider.dart';
 

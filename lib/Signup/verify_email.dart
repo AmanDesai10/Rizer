@@ -53,7 +53,8 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
 //           .catchError((error) => log("Failed to add user: $error"));
 
       FirebaseAuth.instance.signOut();
-
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Successfully Signed up')));
       Navigator.pop(context);
     }
   }
