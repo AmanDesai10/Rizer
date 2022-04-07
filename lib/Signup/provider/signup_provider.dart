@@ -111,8 +111,8 @@ class SignupProvider with ChangeNotifier {
       await users.doc(userCredential.user!.uid).set({
         'Name': userName,
         'role': userCategory.name,
-        'college': college,
-        'dept': dept,
+        'college': college.toLowerCase(),
+        'dept': dept.toLowerCase(),
         'sem': sem
       }).then((_) {
         msg = 'Account created succssfully';

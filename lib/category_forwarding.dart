@@ -1,11 +1,11 @@
-import 'dart:developer';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rizer/faculty/dashboard.dart';
+import 'package:rizer/login/login_view.dart';
+import 'package:rizer/student/student_dashboard.dart';
 
-Future<void> categoryForwarding(BuildContext context) async {
+Future<Widget> categoryForwarding(BuildContext context) async {
   final User? user = FirebaseAuth.instance.currentUser;
   if (user != null) {
     final userData = await FirebaseFirestore.instance
@@ -16,13 +16,12 @@ Future<void> categoryForwarding(BuildContext context) async {
     String userCategory = userData.data()!['role'];
     switch (userCategory) {
       case 'student':
-        log('LOGGED IN AS STUDENT');
-        break;
+        return const StudentDashboardScreen();
       case 'faculty':
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => DashboardScreen()));
-        break;
+        return const DashboardScreen();
       default:
+        return const LoginView();
     }
   }
+  return const LoginView();
 }

@@ -1,3 +1,6 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
@@ -144,36 +147,49 @@ class _LoginViewState extends State<LoginView> {
                               height: 32,
                             ),
                             GestureDetector(
-                              onTap: () async {
-                                if (_formKey.currentState!.validate() &&
-                                    user.isValidated) {
-                                  user.loadLogin(true);
-                                  String msg = await user.firebaseLogin();
-                                  if (msg == 'success') {
-                                    await categoryForwarding(context);
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'Successfully logged in')));
-                                  } else if (msg == 'verify email') {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(
-                                            content: Text(
-                                                'please verify your email.')));
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(content: Text(msg)));
-                                  }
-                                  user.loadLogin(false);
-                                } else {
-                                  ScaffoldMessenger.of(context)
-                                      .removeCurrentSnackBar();
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                          content: Text(
-                                              'Please enter valid input.')));
-                                }
-                              },
+                              onTap: FirebaseAuth.instance.currentUser != null
+                                  ? () {
+                                      log(FirebaseAuth.instance.currentUser
+                                          .toString());
+                                      FirebaseAuth.instance.signOut();
+                                    }
+                                  : () async {
+                                      if (_formKey.currentState!.validate() &&
+                                          user.isValidated) {
+                                        user.loadLogin(true);
+                                        String msg = await user.firebaseLogin();
+                                        if (msg == 'success') {
+                                          var screen =
+                                              await categoryForwarding(context);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      screen));
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                                  content: Text(
+                                                      'Successfully logged in')));
+                                        } else if (msg == 'verify email') {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(const SnackBar(
+                                                  content: Text(
+                                                      'please verify your email.')));
+                                        } else {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                                  SnackBar(content: Text(msg)));
+                                        }
+                                        user.loadLogin(false);
+                                      } else {
+                                        ScaffoldMessenger.of(context)
+                                            .removeCurrentSnackBar();
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(const SnackBar(
+                                                content: Text(
+                                                    'Please enter valid input.')));
+                                      }
+                                    },
                               child: Container(
                                 height: size.height * 0.07,
                                 // padding: EdgeInsets.symmetric(vertical: 14),

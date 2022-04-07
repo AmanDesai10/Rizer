@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:rizer/Signup/provider/signup_provider.dart';
 
 import '../constants/colors.dart';
+import '../constants/institute_data_list.dart';
 import '../login/login_view.dart';
 
 class UserDetails extends StatelessWidget {
@@ -12,12 +13,7 @@ class UserDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final Size size = MediaQuery.of(context).size;
-    final List<String> semList = ['1', '2', '3', '4', '5', '6', '7', '8'];
-    final List<String> collegeList = ['CSPIT', 'DEPSTAR'];
-    final Map<String, List<String>> deptMap = {
-      'CSPIT': ['IT', 'ME'],
-      'DEPSTAR': ['IT', 'CE', 'CSE']
-    };
+
     return Consumer<SignupProvider>(builder: (context, newUser, _) {
       return Scaffold(
         body: Padding(

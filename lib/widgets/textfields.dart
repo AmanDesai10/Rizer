@@ -12,7 +12,8 @@ class AuthTextField extends StatelessWidget {
       this.maxLines = 1,
       this.readOnly = false,
       this.autofocus = false,
-      this.initialValue})
+      this.initialValue,
+      this.hintStyle})
       : super(key: key);
 
   final String? title;
@@ -25,6 +26,7 @@ class AuthTextField extends StatelessWidget {
   final bool readOnly;
   final String? initialValue;
   final bool autofocus;
+  final TextStyle? hintStyle;
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
@@ -59,8 +61,9 @@ class AuthTextField extends StatelessWidget {
         labelStyle: theme.textTheme.bodyText2!
             .copyWith(fontSize: 20.0, color: Colors.grey[400]),
         // errorText: 'widget.errorText',
-        hintStyle: theme.textTheme.bodyText2!
-            .copyWith(fontSize: 16.0, color: Colors.grey.shade400),
+        hintStyle: hintStyle ??
+            theme.textTheme.bodyText2!
+                .copyWith(fontSize: 16.0, color: Colors.grey.shade400),
       ),
     );
   }
