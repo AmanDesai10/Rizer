@@ -41,6 +41,7 @@ dependencies:
   provider: ^6.0.2
   form_field_validator: ^1.1.0
   shared_preferences: ^2.0.13
+  syncfusion_flutter_charts: ^20.1.48
 
 dev_dependencies:
   flutter_test:

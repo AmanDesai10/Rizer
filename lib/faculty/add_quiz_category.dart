@@ -26,6 +26,7 @@ class AddQuizNameAndCategory extends StatefulWidget {
 class _AddQuizNameAndCategoryState extends State<AddQuizNameAndCategory> {
   List<String> categoryList = [];
   String quizName = '';
+  String subjectName = '';
   bool load = false;
 
   final _formKey = GlobalKey<FormState>();
@@ -69,6 +70,18 @@ class _AddQuizNameAndCategoryState extends State<AddQuizNameAndCategory> {
                       hintText: 'Enter Quiz name',
                       onChanged: (value) {
                         quizName = value;
+                      }),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
+                  const TitleText(text: 'Subject'),
+                  const SizedBox(
+                    height: 16.0,
+                  ),
+                  AuthTextField(
+                      hintText: 'Enter subject name',
+                      onChanged: (value) {
+                        subjectName = value;
                       }),
                   const SizedBox(
                     height: 24.0,
@@ -311,6 +324,7 @@ class _AddQuizNameAndCategoryState extends State<AddQuizNameAndCategory> {
                     MaterialPageRoute(
                         builder: (context) => AddQuestions(
                               quizName: quizName,
+                              subjectName: subjectName,
                               categoryList: categoryList,
                               quizDept: widget.quizDept,
                               quizInstitute: widget.quizInstitute,

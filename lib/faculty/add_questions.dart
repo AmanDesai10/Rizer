@@ -16,9 +16,11 @@ class AddQuestions extends StatefulWidget {
       required this.categoryList,
       required this.quizInstitute,
       required this.quizDept,
-      required this.quizSem})
+      required this.quizSem,
+      required this.subjectName})
       : super(key: key);
   final String quizName;
+  final String subjectName;
   final List<String> categoryList;
   final String quizInstitute, quizDept, quizSem;
 
@@ -435,6 +437,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                     .doc(widget.quizName)
                     .set({
                   'quizName': widget.quizName,
+                  'subjectName': widget.subjectName,
                   'question': questionList,
                   'questionOptionMap': questionsOptionMap,
                   'questionAnswerMap': questionsAnswerMap,
