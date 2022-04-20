@@ -49,6 +49,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Rizer',
       theme: ThemeData(
         fontFamily: 'Montserrat',

@@ -104,7 +104,7 @@ class _givenQuizListState extends State<givenQuizList> {
                     snapshot.data!.isEmpty
                         ? Center(
                             child: Text(
-                              'No pending feedbacks!!',
+                              'Give any quiz to view analytics!!',
                               style: theme.textTheme.headline6,
                             ),
                           )

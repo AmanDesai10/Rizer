@@ -90,7 +90,19 @@ class _SignupViewState extends State<SignupView> {
                                             hintText: 'Enter Email',
                                             onChanged: (email) =>
                                                 newUser.emailChange(email),
-                                            validator: emailValidator,
+                                            validator: (value) {
+                                              if (value!.isEmpty) {
+                                                return 'This field is required.';
+                                              }
+                                              if (!value.contains(
+                                                  newUser.userCategory ==
+                                                          Category.student
+                                                      ? '@charusat.edu.in'
+                                                      : '@charusat.ac.in')) {
+                                                return 'Please enter charusat email id';
+                                              }
+                                              return null;
+                                            },
                                           ),
                                           const SizedBox(
                                             height: 28,
