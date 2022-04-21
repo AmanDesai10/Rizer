@@ -6,6 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rizer/Signup/provider/signup_provider.dart';
 
+import '../constants/colors.dart';
+
 class VerifyEmailView extends StatefulWidget {
   const VerifyEmailView({Key? key, required this.email, this.userCategory})
       : super(key: key);
@@ -80,6 +82,7 @@ class _VerifyEmailViewState extends State<VerifyEmailView> {
                 width: 30,
                 height: 30,
                 child: CircularProgressIndicator(
+                  color: kPrimary,
                   strokeWidth: 2.0,
                 )),
             const SizedBox(

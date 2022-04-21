@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' as f;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rizer/Signup/institute_details.dart';
@@ -48,7 +49,9 @@ class _SignupViewState extends State<SignupView> {
                   padding: const EdgeInsets.all(35.0),
                   child: SingleChildScrollView(
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: f.kIsWeb
+                          ? CrossAxisAlignment.center
+                          : CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Signup',

@@ -84,7 +84,9 @@ class _QuizListState extends State<QuizList> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return const Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: kPrimary,
+                  ),
                 );
               }
 
@@ -161,7 +163,7 @@ class _QuizListState extends State<QuizList> {
                                                           height: 16.0,
                                                         ),
                                                         Text(
-                                                          'Subject: CRNS',
+                                                          'Subject: ${snapshot.data![index]['subjectName']}',
                                                           style: theme.textTheme
                                                               .subtitle1,
                                                         ),
