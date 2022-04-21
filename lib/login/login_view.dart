@@ -11,6 +11,8 @@ import 'package:rizer/constants/validators.dart';
 import 'package:rizer/login/provider/login_provider.dart';
 import 'package:rizer/widgets/textfields.dart';
 
+import '../Signup/verify_email.dart';
+
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
@@ -175,6 +177,19 @@ class _LoginViewState extends State<LoginView> {
                                               .showSnackBar(const SnackBar(
                                                   content: Text(
                                                       'please verify your email.')));
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      VerifyEmailView(
+                                                        email: user.email,
+                                                      ))).then((value) {
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const LoginView()));
+                                          });
                                         } else {
                                           ScaffoldMessenger.of(context)
                                               .showSnackBar(

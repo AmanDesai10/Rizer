@@ -32,9 +32,12 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> getData() async {
     if (FirebaseAuth.instance.currentUser != null) {
-      home = await categoryForwarding(context);
-      setState(() {});
-      return;
+      if (FirebaseAuth.instance.currentUser!.emailVerified) {
+        home = await categoryForwarding(context);
+        setState(() {});
+        return;
+      }
+      await FirebaseAuth.instance.signOut();
     }
     home = const LoginView();
     setState(() {});

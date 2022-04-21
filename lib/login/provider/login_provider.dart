@@ -55,11 +55,12 @@ class LoginProvider with ChangeNotifier {
       log(userCredential.toString());
       if (userCredential.user != null) {
         final user = userCredential.user;
+        msg = 'success';
+
         if (!user!.emailVerified) {
-          user.sendEmailVerification();
+          await user.sendEmailVerification();
           msg = 'verify email';
         }
-        msg = 'success';
       } else {
         msg = 'Error occured';
       }
