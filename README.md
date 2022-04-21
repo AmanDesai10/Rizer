@@ -1,4 +1,4 @@
-# rizer
+# Rizer (Rise up your learning with us)
 
 A new Flutter project.
 
